@@ -17,6 +17,6 @@ I often reached out to implementing my own optimistic dark-mode logic every-sing
 From your terminal:
 
 ```sh
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
