@@ -36,7 +36,7 @@ export default function Index() {
             </Link>
           </h1>
           <p className="text-slate-500 dark:text-slate-200 text-lg">
-            Make files portable and save bandwidth when sharing files online
+            Make files portable and save bandwidth when sharing files online.
           </p>
           <div className="h-5"/>
           <div className="flex-1 flex-col justify-center items-start">
