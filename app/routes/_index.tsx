@@ -1,17 +1,10 @@
 import { Link } from "@remix-run/react";
 import { ThemeToggle } from "./resources.theme-toggle";
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "~/components/ui/card";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import GrandientText from "~/components/reuse-components/grandient-text";
+import CardReuseComp from '~/components/reuse-components/card'
 import UploadContent, { FileType } from "~/components/upload-file";
 import { useState } from "react";
 import { Button } from "~/components/ui/button";
-
 
 export default function Index() {
 
@@ -21,7 +14,10 @@ export default function Index() {
     <section className="w-full min-h-screen flex flex-col">
       <nav className="flex items-center justify-between p-4 w-full">
         <Link to="/" className="flex items-center space-x-2">
-          <span className="font-extrabold text-2xl bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient">
+          <span 
+            className="font-extrabold text-3xl bg-gradient-to-r from-orange-700 via-blue-500 
+            to-green-400 text-transparent bg-clip-text bg-300% animate-gradient"
+          >
             <h1>
               FileCram
             </h1>
@@ -33,18 +29,15 @@ export default function Index() {
         <div className="flex-col justify-end items-center space-y-4 p-4">
           <h1 className="text-balance text-4xl md:text-6xl font-bold tracking-tighter">
             An open-source tool to compress an{" "}
-            <span
-              className="font-extrabold bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient"
-            >
-              image
-            </span>{" "}
+            <GrandientText text="image" tag="span"/>
             or{" "}
-            <span
-              className="font-extrabold bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient"
+            <GrandientText text="PDF" tag="span"/>
+            <Link
+              to="https://ui.aceternity.com"
+              className="hover:text-blue-500"
             >
-              PDF
-            </span>{" "}
-            with ease.
+              with ease.
+            </Link>
           </h1>
           <p className="text-slate-500 dark:text-slate-200 text-lg">
             Make files portable and save bandwidth when sharing files online.
