@@ -2,8 +2,14 @@ import { Link } from "@remix-run/react";
 import { ThemeToggle } from "./resources.theme-toggle";
 import GrandientText from "~/components/reuse-components/grandient-text";
 import CardReuseComp from '~/components/reuse-components/card'
+import UploadContent, { FileType } from "~/components/upload-file";
+import { useState } from "react";
+import { Button } from "~/components/ui/button";
 
 export default function Index() {
+
+  const [fileType, setFileType] = useState<FileType>("");
+
   return (
     <section className="w-full min-h-screen flex flex-col">
       <nav className="flex items-center justify-between p-4 w-full">
@@ -37,20 +43,52 @@ export default function Index() {
             Make files portable and save bandwidth when sharing files online.
           </p>
           <div className="h-5"/>
-          <div className="flex flex-wrap py-4 gap-x-4 justify-center items-start">
-            <CardReuseComp cardTitle = "Pick an Image" cardDesc = "Pick any jpeg or png image"/>
-            <CardReuseComp cardTitle = "Pick a PDF" cardDesc = "Pick a PDF format file"/>
-            <CardReuseComp cardTitle = "Pick a PDF" cardDesc = "Pick a PDF format file"/>
-            <CardReuseComp cardTitle = "Pick a PDF" cardDesc = "Pick a PDF format file"/>
-            <CardReuseComp cardTitle = "Pick a PDF" cardDesc = "Pick a PDF format file"/>
-            <CardReuseComp cardTitle = "Pick a PDF" cardDesc = "Pick a PDF format file"/>
-            <CardReuseComp cardTitle = "Pick a PDF" cardDesc = "Pick a PDF format file"/>
-            <CardReuseComp cardTitle = "Pick a PDF" cardDesc = "Pick a PDF format file"/>
-            <CardReuseComp cardTitle = "Pick a PDF" cardDesc = "Pick a PDF format file"/>
-            <CardReuseComp cardTitle = "Pick a PDF" cardDesc = "Pick a PDF format file"/>
-            <CardReuseComp cardTitle = "Pick a PDF" cardDesc = "Pick a PDF format file"/>
-            <CardReuseComp cardTitle = "Pick a PDF" cardDesc = "Pick a PDF format file"/>
+          {fileType === "" ? 
+          <div className="flex-1 flex-col justify-center items-start">
+            <div onClick={() => setFileType("image")}>
+              <Card className="flex justify-between items-end my-3 md:w-96 transition transform hover:scale-105 hover:cursor-pointer">
+                <CardHeader>
+                  <CardTitle
+                    className="text-2xl"
+                  >Pick an image</CardTitle>
+                  <CardDescription className="text-md">Pick any jpeg or png image</CardDescription>
+                </CardHeader>
+                <CardFooter>
+                  <ArrowRight />
+                </CardFooter>
+              </Card>
+            </div>
+            <div
+              onClick={() => setFileType("pdf")}
+            >
+              <Card
+                className="flex justify-between items-end my-3 md:w-96 transition transform hover:scale-105 hover:cursor-pointer"
+              >
+                <CardHeader>
+                  <CardTitle
+                    className="text-2xl"
+                  >Pick a PDF</CardTitle>
+                  <CardDescription className="text-md">Pick a PDF format file</CardDescription>
+                </CardHeader>
+                <CardFooter>
+                  <ArrowRight />
+                </CardFooter>
+              </Card>
+            </div>
           </div>
+          : 
+            <div>
+              <Button
+                onClick={() => setFileType("")}
+                className="my-4"
+                variant="ghost"
+              >
+                <ArrowLeft className="pe-2 h-4"/>
+                Go Back
+              </Button>
+              <UploadContent fileType={fileType}/>
+            </div>
+          }
         </div>
       </div>
     </section>
