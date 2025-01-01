@@ -33,12 +33,7 @@ export default function Index() {
             <GradientText tag="span" text="image"/>
             or {" "}
             <GradientText tag="span" text="PDF"/>
-            <Link
-              to="https://ui.aceternity.com"
-              className="hover:text-blue-500"
-            >
               with ease.
-            </Link>
           </h1>
           <p className="text-slate-500 dark:text-slate-200 text-lg">
             Make files portable and save bandwidth when sharing files online.
