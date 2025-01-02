@@ -40,7 +40,7 @@ export default function Index() {
           </p>
           <div className="h-5"/>
           {(actionType === "") ? 
-            <div className="flex flex-wrap py-4 gap-x-4 justify-center items-start">
+            <div className="md:flex-wrap flex-col py-4 gap-x-4 justify-center md:items-start">
               <div onClick={() => setActionType("image")}>
                 <FileCard
                   cardTitle="Pick an image"
