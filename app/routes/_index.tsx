@@ -22,7 +22,7 @@ export default function Index() {
             <h1>
               FileCram
             </h1>
-          </span>{" "}
+          </span>
         </Link>
         <ThemeToggle />
       </nav>
@@ -31,7 +31,7 @@ export default function Index() {
           <h1 className="text-balance text-4xl md:text-6xl font-bold tracking-tighter">
             An open-source tool to compress an {" "}
             <GradientText tag="span" text="image"/>
-            or {" "}
+            or
             <GradientText tag="span" text="PDF"/>
               with ease.
           </h1>
@@ -39,7 +39,7 @@ export default function Index() {
             Make files portable and save bandwidth when sharing files online.
           </p>
           <div className="h-5"/>
-          {actionType === "" ? 
+          {(actionType === "") ? 
             <div className="flex flex-wrap py-4 gap-x-4 justify-center items-start">
               <div onClick={() => setActionType("image")}>
                 <FileCard
@@ -47,9 +47,7 @@ export default function Index() {
                   cardDesc="Pick any jpeg or png image"
                 />
               </div>
-              <div
-                onClick={() => setActionType("pdf")}
-              >
+              <div onClick={() => setActionType("pdf")}>
                 <FileCard
                   cardTitle="Pick a PDF"
                   cardDesc="Pick a PDF format file"
@@ -60,7 +58,7 @@ export default function Index() {
             <div>
               <Button
                 onClick={() => setActionType("")}
-                className="my-4"
+                className="my-4 border-*"
                 variant="ghost"
               >
                 <ArrowLeft className="pe-2 h-4"/>
