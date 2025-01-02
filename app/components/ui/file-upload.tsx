@@ -27,10 +27,8 @@ const secondaryVariant = {
 
 export const FileUpload = ({
   onChange,
-  filetype
 }: {
   onChange?: (files: File[]) => void;
-  filetype : string;
 }) => {
   const [files, setFiles] = useState<File[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -64,7 +62,6 @@ export const FileUpload = ({
           ref={fileInputRef}
           id="file-upload-handle"
           type="file"
-          accept={filetype}
           onChange={(e) => handleFileChange(Array.from(e.target.files || []))}
           className="hidden"
         />
