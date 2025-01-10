@@ -32,7 +32,7 @@ export const FileUpload = ({
   onChange?: (files: File[]) => void;
   filetype : string;
 }) => {
-  const [fileSize, setFileSize] = useState<string>("");
+  const fileSize = useRef<string>("");
   const [files, setFiles] = useState<File[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -55,18 +55,17 @@ export const FileUpload = ({
   });
 
 
-  //allows only 1 file to be uploaded
+  // allows only 1 file to be uploaded
   if(files.length > 1) {
     files.shift()
   }
-  //restrict file size to 50MB
+  // restrict file size to 50MB
   files.map((file)=> {
     if(file.size >= 52428800) {
-      setFileSize("File too large, must be less than 50MB")
+      fileSize.current = "File too large, must be less than 50MB";
       files.shift();
     } else {
-      //re render error
-      //setFileSize("")
+      fileSize.current = "";
     }
   })
 
@@ -183,7 +182,7 @@ export const FileUpload = ({
             )}
           </div>
         </div>
-        <b className="flex justify-center text-lg text-red-500">{fileSize}</b>
+        <b className="flex justify-center text-lg text-red-500">{fileSize.current}</b>
       </motion.div>
     </div>
   );
